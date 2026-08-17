@@ -124,7 +124,7 @@ Essa arquitetura garante que **o jogo rode com total segurança**, sem expor pri
 
 **1. Clone o repositório:**
 ```bash
-git clone https://github.com/seu-usuario/Bio-Game-main.git
+git clone https://github.com/Meneguel14/bio-game-paleontologia)
 ```
 
 **2. Acesse a pasta do projeto:**

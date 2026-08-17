@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escavação Paleontológica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Cabeçalho do Jogo -->
+    <div class="game-header">
+        <h1 class="game-title">🦴 ONDE ESTÃO OS FÓSSEIS?</h1>
+        <div class="game-stats">
+            <div class="stat-item">
+                <div class="stat-label">Tempo</div>
+                <div class="stat-value" id="timer">00:00</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Pontos</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Tentativas</div>
+                <div class="stat-value" id="attempts">0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container principal do jogo -->
+    <div class="game-container" id="gameContainer">
+        <div class="loading" id="loading">Carregando jogo...</div>
+    </div>
+
+    <!-- Modal de Cadastro Obrigatório -->
+    <div class="register-overlay" id="registerOverlay">
+        <div class="register">
+            <h1>Cadastro</h1>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Idade:</label>
+                    <input type="number" id="age" name="age" min="1" max="120" placeholder="Sua idade" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="school">Instituição de Ensino:</label>
+                    <input type="text" id="school" name="school" list="schoolList" placeholder="Nome da escola/instituição" required>
+                    <datalist id="schoolList"></datalist>
+                </div>
+
+                <div class="form-group">
+                    <label for="schoolStage">Etapa Escolar:</label>
+                    <select id="schoolStage" name="schoolStage" required>
+                        <option value="">Selecione uma etapa...</option>
+                        <option value="Ensino Infantil">Ensino Infantil</option>
+                        <option value="Ensino Fundamental">Ensino Fundamental</option>
+                        <option value="Ensino Médio">Ensino Médio</option>
+                        <option value="Ensino Especial">Ensino Especial</option>
+                        <option value="Ensino Superior">Ensino Superior</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div id="registerError" class="error" style="display:none;"></div>
+
+                <button type="submit" id="registerBtn">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Controles do jogo -->
+    <div class="controls">
+        <button class="btn btn-primary" id="startBtn" disabled>▶ Iniciar Jogo</button>
+        <button class="btn btn-secondary" id="hintBtn" disabled>💡 Dica (0/3)</button>
+        <button class="btn btn-primary" id="resetBtn">🔄 Reiniciar</button>
+        <button class="btn btn-secondary" id="leaderboardBtn">🏆 Ranking</button>
+    </div>
+
+    <!-- Container de notificações Toast -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Modal de Ranking (Leaderboard) -->
+    <div id="leaderboardModal" class="popup-overlay">
+        <div class="popup-content leaderboard-popup">
+            <span class="close-btn" id="closeLeaderboardBtn">×</span>
+            <h2 class="leaderboard-title">🏆 Ranking dos Exploradores</h2>
+            <div class="leaderboard-wrap">
+                <table id="leaderboardTable" class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Pos.</th>
+                            <th>Nome</th>
+                            <th>Pontos</th>
+                            <th>Tempo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Preenchido dinamicamente pelo JS -->
+                    </tbody>
+                </table>
+                <p class="leaderboard-empty" id="leaderboardEmpty" style="display:none;">Nenhuma pontuação registrada ainda.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de fim de jogo -->
+    <div class="game-over" id="gameOver">
+        <div class="game-over-content">
+            <h2 id="gameOverTitle">🎉 Escavação Concluída!</h2>
+            <p id="gameOverSubtitle">Você encontrou todos os fósseis!</p>
+            <div class="final-stats" id="finalStats"></div>
+            <button class="btn btn-primary" id="playAgainBtn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+# Dependências do Node.js (NUNCA devem ir para o Git)
+node_modules/
+jspm_packages/
+
+# Arquivos de Build e Distribuição
+dist/
+build/
+out/
+
+# Logs e arquivos temporários
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Variáveis de ambiente e segredos
+.env
+.env.local
+
+# Arquivos do sistema operacional e IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
